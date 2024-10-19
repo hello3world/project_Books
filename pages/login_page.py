@@ -17,3 +17,6 @@ class LoginPage(BasePage):
     def should_be_register_form(self):
         self.is_element_present(
             *LoginPageLocators.REGISTER_FORM_LINK), "Login link is not presented"
+
+    def register_new_user(self, email, password):
+        pass
