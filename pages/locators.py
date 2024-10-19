@@ -12,6 +12,6 @@ class LoginPageLocators():
 class ProductPageLocators():
     BUTTON_TO_BUSKET = (By.XPATH, "//button[contains(@class, 'btn-add-to-basket')]")
     NAME_BOOK = (By.XPATH, "//div[@class = 'col-sm-6 product_main']/h1")
-    PRICE_BOOK = (By.XPATH, "//div[@class = 'price_color']")
+    PRICE_BOOK = (By.XPATH, "//p[@class = 'price_color']")
     NAME_BOOK_MESSAGE = (By.XPATH, "//div[@class = 'alertinner ']/strong")
     PRICE_BOOK_MESSAGE = (By.XPATH, "//div[@class = 'alertinner ']/p/strong")
