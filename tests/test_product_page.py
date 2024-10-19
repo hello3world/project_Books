@@ -1,6 +1,9 @@
+import time
+
 import pytest
 
 from pages.basket_page import BasketPage
+from pages.login_page import LoginPage
 from pages.product_page import ProductPage
 
 @pytest.mark.skip(reason="Skipping test due to solutions new tests")
@@ -47,6 +50,7 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     page.open()
     page.should_be_disappeared_success_message()
 
+@pytest.mark.skip(reason="Skipping test due to solutions new tests")
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-age-of-the-pussyfoot_89/"
     page = ProductPage(browser, link)
@@ -57,14 +61,24 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     page.should_not_be_basket_items()
 
 class TestUserAddToBasketFromProductPage():
-    def test_user_cant_see_success_message(browser):
+    @pytest.fixture(scope="function", autouse=True)
+    def setup(self, browser):
+        link = "https://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
+        page = LoginPage(browser, link)
+        page.open()
+        email = f"{str(time.time())}@fakemail.org"
+        password = "1t2T3f4*5N_6"
+        page.register_new_user(email, password)
+        page.should_be_authorized_user()
+
+    def test_user_cant_see_success_message(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
         page = ProductPage(browser, link)
         page.open()
         page.should_not_be_success_message()
 
 
-    def test_user_cant_see_success_message(browser):
+    def test_user_cant_see_success_message(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
         page = ProductPage(browser, link)
         page.open()

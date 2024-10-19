@@ -1,3 +1,5 @@
+import time
+
 from .base_page import BasePage
 from .locators import LoginPageLocators
 
@@ -19,4 +21,8 @@ class LoginPage(BasePage):
             *LoginPageLocators.REGISTER_FORM_LINK), "Login link is not presented"
 
     def register_new_user(self, email, password):
-        pass
+        self.browser.find_element(*LoginPageLocators.EMAIL).send_keys(f"{email}")
+        self.browser.find_element(*LoginPageLocators.PASSWORD).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.PASSWORD_CONFIRM).send_keys(password)
+        self.browser.find_element(
+            *LoginPageLocators.BUTTON_REGISTER).click()

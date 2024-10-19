@@ -9,6 +9,10 @@ class LoginPageLocators():
     REGISTER_FORM_LINK = (By.XPATH, "//h2[text()='Войти']")
     LOGIN_FORM_LINK = (By.XPATH, "//h2[text()='Зарегистрироваться']")
     NAME_BOOK_MESSAGE = (By.XPATH, "//h2[text()='Зарегистрироваться']")
+    EMAIL = (By.NAME, "registration-email")
+    PASSWORD = (By.NAME, "registration-password1")
+    PASSWORD_CONFIRM = (By.NAME, "registration-password2")
+    BUTTON_REGISTER = (By.NAME, "registration_submit")
 
 class ProductPageLocators():
     BUTTON_TO_BUSKET = (By.XPATH, "//button[contains(@class, 'btn-add-to-basket')]")
