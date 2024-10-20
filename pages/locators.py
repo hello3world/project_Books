@@ -15,12 +15,13 @@ class LoginPageLocators():
     BUTTON_REGISTER = (By.NAME, "registration_submit")
 
 class ProductPageLocators():
-    BUTTON_TO_BUSKET = (By.XPATH, "//button[contains(@class, 'btn-add-to-basket')]")
+    ADD_TO_BASKET = (By.XPATH, "//*[contains(@class, 'btn-add-to-basket')]")
     NAME_BOOK = (By.XPATH, "//div[@class = 'col-sm-6 product_main']/h1")
     PRICE_BOOK = (By.XPATH, "//p[@class = 'price_color']")
     NAME_BOOK_MESSAGE = (By.XPATH, "//div[@class = 'alertinner ']/strong")
     PRICE_BOOK_MESSAGE = (By.XPATH, "//div[@class = 'alertinner ']/p/strong")
     SUCCESS_MESSAGE = (By.XPATH, "//div[@class = 'alertinner ']")
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
 
 class BasketPageLocators():
     BASKET_IS_EMPTY = (By.XPATH, "//div[@id='content_inner']/p")

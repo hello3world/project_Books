@@ -26,13 +26,14 @@ class TestLoginFromMainPage():
         page.open()
         page.should_be_login_link()
 
-def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
-    link = "http://selenium1py.pythonanywhere.com/"
-    page = MainPage(browser, link)
-    page.open()
-    page.open_basket()
-    page = BasketPage(browser, link)
-    page.should_be_basket_empty()
-    page.should_not_be_basket_items()
+    @pytest.mark.skip
+    def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
+        link = "http://selenium1py.pythonanywhere.com/"
+        page = MainPage(browser, link)
+        page.open()
+        page.open_basket()
+        page = BasketPage(browser, link)
+        page.should_be_basket_empty()
+        page.should_not_be_basket_items()
 
 

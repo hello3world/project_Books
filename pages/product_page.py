@@ -5,7 +5,7 @@ from pages.locators import ProductPageLocators
 class ProductPage(BasePage):
 
     def add_book_to_busket(self):
-        button_add_to_busket = self.browser.find_element(*ProductPageLocators.BUTTON_TO_BUSKET)
+        button_add_to_busket = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET)
         button_add_to_busket.click()
 
     def get_name_book_from_product_cart(self):
@@ -40,6 +40,10 @@ class ProductPage(BasePage):
             *ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is not disappeared, but should be"
 
+    def should_be_login_link(self):
+        assert self.is_element_present(*ProductPageLocators.LOGIN_LINK), "Login link is not presented"
 
-
+    def go_to_login_page(self):
+        login_link = self.browser.find_element(*ProductPageLocators.LOGIN_LINK)
+        login_link.click()
 
